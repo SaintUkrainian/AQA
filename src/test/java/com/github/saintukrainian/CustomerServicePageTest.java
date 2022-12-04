@@ -44,15 +44,18 @@ public class CustomerServicePageTest {
   }
 
   @Test
-  void verifyHelpCardsAreNotTheSame() {
+  void verifyHelpCardsAreNotTheSame() throws InterruptedException {
     // given
     List<WebElement> helpTopics = CUSTOMER_SERVICE_PAGE.getHelpTopics();
 
     // when
     helpTopics.get(0).click();
+    Thread.sleep(2500);
     List<String> currentHelpCards = CUSTOMER_SERVICE_PAGE.getCurrentHelpCards();
 
+
     helpTopics.get(1).click();
+    Thread.sleep(2500);
     List<String> selectedHelpCards = CUSTOMER_SERVICE_PAGE.getCurrentHelpCards();
 
     // then

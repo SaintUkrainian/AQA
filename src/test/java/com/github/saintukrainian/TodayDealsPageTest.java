@@ -68,10 +68,10 @@ public class TodayDealsPageTest {
   @Test
   void verifySelectedDeal() {
     // given
-    WebElement dealsContainer = TODAY_DEALS_PAGE.getDealsContainer();
+    List<WebElement> deals = TODAY_DEALS_PAGE.findDeals();
 
     // when
-    WebElement deal = dealsContainer.findElement(By.xpath("//div[@data-testid='deal-card']"));
+    WebElement deal = deals.get(1);
     deal.click();
 
     // then

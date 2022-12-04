@@ -18,11 +18,8 @@ public class TodayDealsPage {
   @FindBy(xpath = "//span[@data-testid='grid-filter-DISCOUNT']")
   private WebElement dealsFilterContainer;
 
-  @FindBy(id = "live-flagship-root")
+  @FindBy(xpath = "//ol[@role='list']")
   private WebElement featuredProductsWidget;
-
-  @FindBy(xpath = "//div[@data-testid='grid-deals-container']")
-  private WebElement dealsContainer;
 
   public TodayDealsPage(WebDriver driver) {
     this.driver = driver;
@@ -31,12 +28,16 @@ public class TodayDealsPage {
   }
 
   public List<WebElement> findFeaturedProductsInWidget() {
-    return featuredProductsWidget.findElements(By.xpath("//div[@data-id='slide']"));
+    return featuredProductsWidget.findElements(By.tagName("li"));
   }
 
   public List<WebElement> getSelectedDeals() {
     return driver.findElement(By.xpath("//div[@data-mix-claimed='true']"))
         .findElements(By.tagName("div"));
+  }
+
+  public List<WebElement> findDeals() {
+    return driver.findElements(By.xpath("//div[@data-testid='deal-card']"));
   }
 
   public void navigateToTodayDealsPage() {

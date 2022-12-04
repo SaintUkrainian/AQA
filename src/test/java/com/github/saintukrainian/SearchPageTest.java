@@ -76,7 +76,7 @@ public class SearchPageTest {
     // then
     assertThat(brands)
         .isNotEmpty()
-        .contains("apple", "samsung");
+        .contains("oneplus", "samsung");
   }
 
 }
